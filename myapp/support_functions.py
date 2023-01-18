@@ -1,3 +1,6 @@
+from myapp.models import Currency
+
+
 def get_currency_list():
     currency_list = list()
     import requests
@@ -24,9 +27,10 @@ def add_currencies(currency_list):
     for currency in currency_list:
         currency_name = currency[0]
         currency_symbol = currency[1]
-    try:
-        c= Currency.objects.get(iso=currency_symbol)
-    except:
-        c = Currency(long_name=currency_name, iso=currency_symbol)
-    c.name = currency_name
-    c.save() #To test out the code, replace this by print(c)
+        if len(currency_symbol) >3:
+            continue
+        try:
+            c= Currency.objects.get(iso=currency_symbol)
+        except:
+            c = Currency(long_name=currency_name, iso=currency_symbol)
+            c.save() #To test out the code, replace this by print(c)
