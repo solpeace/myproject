@@ -89,9 +89,8 @@ DATABASES = {
 """
 
 DATABASES = {
-"default": dj_database_url.config(default = "postgresql://postgres:postgres@localhost:5432/hj2203-webapps1",
+    "default": dj_database_url.config(default = "postgresql://postgres:postgres@localhost:5433/ms6262-webapps1",
                                     conn_max_age = 600)}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -134,3 +133,4 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
